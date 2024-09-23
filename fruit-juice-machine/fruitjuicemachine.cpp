@@ -21,6 +21,9 @@
  */
 
 // Class for managing the cash register
+
+#include <iostream>
+
 class cashRegister {
     public:
         int getCurrentBalance() const;
