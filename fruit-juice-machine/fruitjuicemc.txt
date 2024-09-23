@@ -1,0 +1,73 @@
+Juice Vending Machine System
+
+Overview
+--------
+This program simulates a juice vending machine system with two primary components: cashRegister and dispenserType. The machine allows customers to choose a product, displays the price, accepts payment, and dispenses the product if the transaction is valid. The program handles multiple operations like balance tracking and inventory management.
+
+Operations
+----------
+1. Show Products: Display available juice products for sale.
+2. Customer Selection: Let the customer choose a product.
+3. Show Cost: Display the cost of the selected product.
+4. Accept Payment: Take the customer's money.
+5. Release Product: Dispense the product to the customer if the transaction is successful.
+
+UML Diagram
+-----------
+Class: cashRegister
+-------------------
+Attributes:
+- cashOnHand: An integer representing the current cash balance in the register.
+
+Methods:
+- getCurrentBalance() const: Returns the current balance in the register.
+- acceptAmount(int amount): Adds the given amount to the cash register.
+- cashRegister(): Default constructor, sets initial balance.
+- cashRegister(int amount): Parameterized constructor, allows setting a custom initial balance.
+
+Class: dispenserType
+--------------------
+Attributes:
+- numberOfItems: The total number of items in stock.
+- cost: The price of a single product.
+
+Methods:
+- getNoOfItems() const: Returns the number of items available in the dispenser.
+- getCost() const: Returns the price of the product.
+- makeSale(): Reduces the stock by one when a product is sold.
+- dispenserType(): Default constructor, sets the stock and cost to default values.
+- dispenserType(int items, int cost): Parameterized constructor to set custom stock and cost values.
+
+Functional Description
+----------------------
+void showSelection()
+This function displays a list of available juices to the customer. It provides a menu from which the customer can make a selection.
+
+void sellProduct(dispenserType& product, cashRegister& pCounter)
+This function manages the sale process. It handles the customer’s payment, verifies the amount, dispenses the product, and updates the machine’s inventory and balance.
+
+Process Flow:
+-------------
+1. Check if the dispenser contains stock.
+2. Show the product cost and request payment from the customer.
+3. If the payment is less than the product cost:
+    - Ask the customer for the remaining amount.
+    - Calculate and validate the total amount.
+4. If the payment is sufficient:
+    - Update the cash register with the product price.
+    - Reduce the dispenser stock by 1.
+    - Display a success message.
+5. If payment is insufficient, cancel the transaction.
+
+Program Functionality
+---------------------
+After execution, the program performs the following:
+1. Display Selection: Shows available juice options via showSelection().
+2. Handle Customer Selection: Waits for user input.
+3. Validate and Process Sale: If the selection is valid and the product is available, the product is sold using sellProduct().
+
+Future Updates
+--------------
+- Enhanced Cash Management: Include a system to handle different denominations and change calculation.
+- User Interface: Develop a front-end UI for user-friendly interaction with the vending machine.
+- Advanced Inventory Management: Add features for restocking and tracking detailed product sales analytics.
